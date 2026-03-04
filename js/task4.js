@@ -5,7 +5,8 @@ function TernarCount() {
     prompt("Pls, write here minutes to convert into the time:"),
   );
 
-  const hours = (num / 60).toFixed(0);
+  // const hours = (num / 60).toFixed(0);
+  const hours = Math.floor(num / 60); // Math.floor - бо він округлює до нижньої межі
   const minutes = num % 60;
 
   console.log(
@@ -21,13 +22,14 @@ function PadStartCount() {
     prompt("Pls, write here minutes to convert into the time:"),
   );
 
-  const hours = (num / 60).toFixed(0);
+  // const hours = (num / 60).toFixed(0);
+  const hours = Math.floor(num / 60); // Math.floor - бо він округлює до нижньої межі
   const minutes = num % 60;
 
   console.log(
-    `${String(hours).padStart(2, "0")} : ${String(minutes).padStart(2, "0")}`,
+    `${String(hours).padStart(2, 0)} : ${String(minutes).padStart(2, 0)}`,
   );
-  return `${String(hours).padStart(2, "0")} : ${String(minutes).padStart(2, "0")}`;
+  return `${String(hours).padStart(2, 0)} : ${String(minutes).padStart(2, 0)}`;
 }
 
 alert(TernarCount());
