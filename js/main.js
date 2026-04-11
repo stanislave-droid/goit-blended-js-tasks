@@ -152,28 +152,54 @@
 //   }
 // }
 
-//--------------------------Task 4.0 -----------------------------
+//--------------------------Task 4.2 -----------------------------
 const box = document.querySelector(".box");
 const decrease = document.querySelector("#decrease");
 const increase = document.querySelector("#increase");
 
 decrease.addEventListener("click", handleDecrease);
 increase.addEventListener("click", handleIncrease);
-box.style.width = "50px";
-box.style.height = "50px";
+let width = Number.parseFloat(getComputedStyle(box).width);
+let height = Number.parseFloat(getComputedStyle(box).width);
 
 function handleDecrease() {
-  console.log(box.style.width);
-  console.log(box.style.height);
-  const width = box.style.width;
-  const height = box.style.height;
-  box.style.width = `${Number.parseInt(width) - 20}px`;
-  box.style.height = `${Number.parseInt(height) - 20}px`;
+  if (width - 20 > 0 && height - 20 > 0) {
+    width -= 20;
+    height -= 20;
+  }
+  box.style.width = `${width}px`;
+  box.style.height = `${height}px`;
 }
 
 function handleIncrease() {
-  const width = box.style.width;
-  const height = box.style.height;
-  box.style.width = `${Number.parseInt(width) + 20}px`;
-  box.style.height = `${Number.parseInt(height) + 20}px`;
+  width += 20;
+  height += 20;
+  box.style.width = `${width}px`;
+  box.style.height = `${height}px`;
 }
+
+//--------------------------Task 4.1 -----------------------------
+// const box = document.querySelector(".box");
+// const decrease = document.querySelector("#decrease");
+// const increase = document.querySelector("#increase");
+
+// decrease.addEventListener("click", handleDecrease);
+// increase.addEventListener("click", handleIncrease);
+// box.style.width = "50px";
+// box.style.height = "50px";
+
+// function handleDecrease() {
+//   console.log(box.style.width);
+//   console.log(box.style.height);
+//   const width = box.style.width;
+//   const height = box.style.height;
+//   box.style.width = `${Number.parseInt(width) - 20}px`;
+//   box.style.height = `${Number.parseInt(height) - 20}px`;
+// }
+
+// function handleIncrease() {
+//   const width = box.style.width;
+//   const height = box.style.height;
+//   box.style.width = `${Number.parseInt(width) + 20}px`;
+//   box.style.height = `${Number.parseInt(height) + 20}px`;
+// }
